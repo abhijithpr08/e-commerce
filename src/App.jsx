@@ -3,8 +3,8 @@ import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Home from './pages/Home'
 import axios from 'axios'
-import ProductCard from './products/ProductCard'
-// import { BrowserRouter, Router, Route } from 'react-router-dom'
+import ProductDetails from './products/ProductDetails'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
   const [products, setProducts] = useState([])
@@ -24,14 +24,18 @@ const App = () => {
   }
 
   return (
-    
+
+    <BrowserRouter>
       <div>
         <Header />
-        
-          <Home products={products} />
+        <Routes>
+          <Route path='/' element={<Home products={products} />} />
+          <Route path='/products/:id' element={<ProductDetails />} />
+        </Routes>
         <Footer />
       </div>
-    
+    </BrowserRouter>
+
   )
 }
 

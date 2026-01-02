@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ProductCard = ({ products }) => {
     return (
         <div className='bg-white rounded-xl  shadow-lg hover:shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:scale-105 hover:-translate-y-1'>
             {/* Product Image */}
+            <Link to={`/products/${products.id}`}>
             <div className='relative h-48 bg-gray-100 flex items-center justify-center overflow-hidden'>
                 <img
                     src={products?.thumbnail}
@@ -11,6 +13,7 @@ const ProductCard = ({ products }) => {
                     className='w-full h-full object-contain hover:scale-105 transition-transform duration-300'
                 />
             </div>
+            </Link>
 
             {/* Product Details */}
             <div className='p-4 space-y-3'>
